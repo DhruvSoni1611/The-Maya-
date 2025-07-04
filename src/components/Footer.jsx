@@ -63,11 +63,11 @@ const Footer = () => {
               href="https://dhruv-soni.netlify.app/"
               target="_blank"
               rel="noopener noreferrer"
-              className="transition-colors duration-300 underline decoration-transparent hover:decoration-blue-400"
+              className="footer-hover-btn"
             >
               Code by Dhruv
             </a>{" "}
-            2024.
+            <span className="ms-4">2024.</span>
           </p>
         </div>
 

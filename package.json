@@ -6,16 +6,20 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "lint": "eslint .",
-    "preview": "vite preview"
+    "lint": "eslint ."
   },
   "dependencies": {
+    "@clerk/clerk-react": "^5.32.3",
+    "@clerk/themes": "^2.2.54",
     "@gsap/react": "^2.1.2",
+    "@prisma/client": "^6.11.1",
     "clsx": "^2.1.1",
     "gsap": "^3.13.0",
+    "prisma": "^6.11.1",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "react-icons": "^5.5.0",
+    "react-router-dom": "^7.6.3",
     "react-use": "^17.6.0"
   },
   "devDependencies": {

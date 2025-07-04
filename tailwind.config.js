@@ -5,6 +5,8 @@ export default {
     extend: {
       fontFamily: {
         zentry: ["zentry", "sans-serif"],
+        aktura: ["aktura", "sans-serif"],
+        navada: ["navada", "sans-serif"],
         general: ["general", "sans-serif"],
         "circular-web": ["circular-web", "sans-serif"],
         "robert-medium": ["robert-medium", "sans-serif"],

@@ -318,6 +318,16 @@ body.custom-cursor * {
     font-family: "zentry";
     src: url("/fonts/zentry-regular.woff2") format("woff2");
   }
+
+  @font-face {
+    font-family: "aktura";
+    src: url("/fonts/Aktura-Regular.woff2") format("woff2");
+  }
+  
+  @font-face {
+    font-family: "navada";
+    src: url("/fonts/WickedKnight-Regular.ttf") format("truetype");
+  }
 }
 
 
@@ -328,6 +338,18 @@ body.custom-cursor * {
 
   .nav-hover-btn {
     @apply relative ms-10 font-general text-xs uppercase text-blue-50 after:absolute after:-bottom-0.5 after:left-0 after:h-[2px] after:w-full after:origin-bottom-right after:scale-x-0 after:bg-neutral-800 after:transition-transform after:duration-300 after:ease-[cubic-bezier(0.65_0.05_0.36_1)] hover:after:origin-bottom-left hover:after:scale-x-100 dark:after:bg-white cursor-pointer;
+  }
+
+  .user-button-mobile {
+    @apply  relative
+  }
+
+  .user-button-desk {
+    @apply relative
+  }
+
+  .footer-hover-btn {
+    @apply relative font-general text-xs uppercase text-blue-50 after:absolute after:-bottom-0.5 after:left-0 after:h-[2px] after:w-full after:origin-bottom-right after:scale-x-0 after:bg-neutral-800 after:transition-transform after:duration-300 after:ease-[cubic-bezier(0.65_0.05_0.36_1)] hover:after:origin-bottom-left hover:after:scale-x-100 dark:after:bg-white cursor-pointer;
   }
 
   .floating-nav {
@@ -347,16 +369,16 @@ body.custom-cursor * {
   }
 
   .special-font b {
-    font-family: "Zentry";
+    font-family: "aktura";
     font-feature-settings: "ss01" on;
   }
 
   .hero-heading {
-    @apply uppercase font-zentry font-black text-5xl sm:right-10 sm:text-7xl md:text-9xl lg:text-[12rem];
+    @apply uppercase font-navada font-black text-7xl sm:right-10 sm:text-7xl md:text-9xl lg:text-[12rem];
   }
 
   .hero-heading-m {
-    @apply uppercase font-zentry font-black text-5xl sm:right-10 sm:text-7xl md:text-9xl lg:text-[8rem];
+    @apply uppercase font-navada font-black text-5xl sm:right-10 sm:text-7xl md:text-9xl lg:text-[8rem];
   }
 
   /* .about-subtext {
@@ -371,7 +393,7 @@ body.custom-cursor * {
   }
 
   .animated-word {
-    @apply special-font font-zentry font-black opacity-0;
+    @apply special-font font-navada font-black opacity-0;
     transform: translate3d(10px, 51px, -60px) rotateY(60deg) rotateX(-40deg);
     transform-origin: 50% 50% -150px !important;
     will-change: opacity, transform;
@@ -386,7 +408,7 @@ body.custom-cursor * {
   }
 
   .bento-title {
-    @apply uppercase md:text-6xl text-4xl font-black font-zentry;
+    @apply uppercase md:text-6xl text-4xl font-black font-navada;
   }
 
   .story-img-container {
