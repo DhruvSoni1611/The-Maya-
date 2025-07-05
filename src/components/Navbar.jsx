@@ -301,11 +301,7 @@ const NavBar = () => {
             {/* Logo + Product */}
             <div className="flex items-center gap-7">
               <Link to="/" className="logo-link">
-                <img
-                  src="/public/img/the_maya_logo.png"
-                  alt="logo"
-                  className="w-10"
-                />
+                <img src="/img/the_maya_logo.png" alt="logo" className="w-10" />
               </Link>
               {isSignedIn && (
                 <Button
