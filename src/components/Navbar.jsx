@@ -300,11 +300,13 @@ const NavBar = () => {
           <nav className="flex size-full items-center justify-between p-4">
             {/* Logo + Product */}
             <div className="flex items-center gap-7">
-              <img
-                src="/public/img/the_maya_logo.png"
-                alt="logo"
-                className="w-10"
-              />
+              <Link to="/" className="logo-link">
+                <img
+                  src="/public/img/the_maya_logo.png"
+                  alt="logo"
+                  className="w-10"
+                />
+              </Link>
               {isSignedIn && (
                 <Button
                   id="product-button"
