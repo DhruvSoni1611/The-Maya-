@@ -6,7 +6,7 @@ import App from "./App.jsx";
 import "./index.css";
 import CustomCursor from "./components/CustomCursor.jsx";
 import { dark } from "@clerk/themes";
-
+import { InitUserSync } from "./context/AuthContext.jsx";
 const clerkPubKey = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY;
 
 createRoot(document.getElementById("root")).render(
@@ -19,6 +19,7 @@ createRoot(document.getElementById("root")).render(
     <BrowserRouter>
       <CustomCursor type="dot-ring" />
       <StrictMode>
+        <InitUserSync />
         <App />
       </StrictMode>
     </BrowserRouter>

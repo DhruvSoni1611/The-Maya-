@@ -8,7 +8,6 @@ const ImageGen = () => {
   const { user } = useUser();
   const [prompt, setPrompt] = useState("");
   const { loading, error, imageUrl, generateImage } = useImageGen({
-    userId: user?.id,
     email: user?.primaryEmailAddress?.emailAddress,
   });
 

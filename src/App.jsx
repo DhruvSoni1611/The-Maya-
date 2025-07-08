@@ -11,6 +11,7 @@ import SignInPage from "./app/(auth)/sign-in/[[...sign-in]]/SignIn";
 import Dashboard from "./app/dashboard/Dashboard";
 import ProtectedRoute from "./app/(auth)/sign-in/[[...sign-in]]/ProtectedRoute";
 import ImageGen from "./app/image-gen/ImageGen";
+import Echo from "./app/pdf-to-podcast/Echo";
 
 const App = () => {
   return (
@@ -40,6 +41,14 @@ const App = () => {
           }
         />
 
+        <Route
+          path="/Echo"
+          element={
+            <ProtectedRoute>
+              <Echo />
+            </ProtectedRoute>
+          }
+        />
         {/* <Route
           path="/oracle"
           element={
@@ -49,14 +58,6 @@ const App = () => {
           }
         />
 
-        <Route
-          path="/Echo"
-          element={
-            <ProtectedRoute>
-              <Echo />
-            </ProtectedRoute>
-          }
-        />
 
         <Route
           path="/contact"

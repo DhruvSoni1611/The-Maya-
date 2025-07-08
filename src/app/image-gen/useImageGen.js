@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export function useImageGen({ userId, email }) {
+export function useImageGen({ email }) {
   const [loading, setLoading] = useState(false);
   const [imageUrl, setImageUrl] = useState(null);
   const [error, setError] = useState(null);
@@ -10,38 +10,39 @@ export function useImageGen({ userId, email }) {
     setError(null);
     setImageUrl(null);
 
+    console.log("📤 Sending prompt to backend:", prompt);
+
     try {
-      // 1. Call Replicate API (SDXL or similar)
-      const response = await fetch("https://api.replicate.com/v1/predictions", {
+      // 1. Generate from Replicate API
+      const replicateRes = await fetch(
+        `${import.meta.env.VITE_API_URL}/api/image/gen`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ prompt }),
+        }
+      );
+
+      const data = await replicateRes.json();
+      const outputImage = data.imageUrl;
+
+      if (!outputImage) throw new Error("Image generation failed");
+
+      // Then save to DB as before
+      await fetch(`${import.meta.env.VITE_API_URL}/api/image/save`, {
         method: "POST",
         headers: {
-          Authorization: `Token ${import.meta.env.VITE_REPLICATE_API_TOKEN}`,
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          version: "db21e45e...your_model_version_here",
-          input: { prompt },
+          email,
+          prompt,
+          imageUrl: outputImage,
+          format: "jpg",
         }),
       });
-
-      const prediction = await response.json();
-      const finalImage = prediction?.output?.[0];
-
-      if (!finalImage) throw new Error("Image generation failed.");
-
-      // 2. Save to your backend (via API)
-      const res = await fetch("/api/image/save", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ prompt, imageUrl: finalImage, userId, email }),
-      });
-
-      const result = await res.json();
-      if (!result.success) throw new Error("Error saving to DB");
-
-      setImageUrl(finalImage);
     } catch (err) {
       setError(err.message);
     }
